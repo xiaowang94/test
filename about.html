@@ -1,0 +1,331 @@
+<!-- 关于我们（about.html） -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 LUXE | 臻选奢华商城</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #d4af37;
+            --secondary-color: #1a1a1a;
+            --border-color: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        .about-hero {
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-section.reverse {
+            direction: rtl;
+        }
+
+        .about-section.reverse > * {
+            direction: ltr;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #c5c5c5;
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+
+        .values {
+            text-align: center;
+            margin: 120px auto;
+            max-width: 1000px;
+            padding: 0 40px;
+        }
+
+        .values h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--accent-color);
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(212,175,55,0.15);
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: #c5c5c5;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            padding: 60px 40px 30px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover { color: var(--accent-color); }
+
+        .copyright {
+            font-size: 12px;
+            color: #666;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .about-section,
+            .about-section.reverse {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-hero h1 { font-size: 42px; }
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LUXE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="categories.html">分类</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 顶部横幅 -->
+    <section class="about-hero">
+        <h1>关于 LUXE</h1>
+    </section>
+
+    <!-- 品牌故事 -->
+    <main class="about-content">
+        <div class="about-section">
+            <div class="about-text">
+                <h2>品牌故事</h2>
+                <p>LUXE 诞生于对极致美学与匠心工艺的无限追求。我们相信，真正的奢华不仅在于价格，更在于作品背后的历史、文化与灵魂。自创立以来，我们踏遍全球，只为甄选那些能够跨越时代的经典与先锋。</p>
+                <p>从巴黎高级工坊的隐秘工作室，到瑞士汝拉山谷的制表圣地，再到托斯卡纳传承百年的皮革家族，我们与每一位创作者深入对话，将他们的故事与作品一同呈现给同样追求卓越的您。</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=800&q=80" alt="手工制作过程">
+            </div>
+        </div>
+
+        <div class="about-section reverse">
+            <div class="about-text">
+                <h2>严苛甄选标准</h2>
+                <p>每一件进入 LUXE 的商品都必须通过我们独有的「Triple-A」评估：Authenticity（真实性）、Artisanry（工艺水准）、Aesthetics（美学价值）。我们的专业团队由前拍卖行专家、独立制表师、时装史学家组成，确保每件臻品都符合最严苛的收藏与佩戴标准。</p>
+                <p>同时，我们坚持可持续奢华理念，优先选择使用环保材质与公平贸易工艺的品牌，让奢华与责任并行。</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="品质评估">
+            </div>
+        </div>
+    </main>
+
+    <!-- 核心价值 -->
+    <section class="values">
+        <h2>我们的核心价值</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>极致甄选</h3>
+                <p>全球仅 0.3% 的候选商品能够通过 LUXE 的甄选，确保每一件都是值得传承的杰作。</p>
+            </div>
+            <div class="value-card">
+                <h3>专属服务</h3>
+                <p>从私人顾问到全球极速配送，再到终身保养计划，我们提供超越期待的全链路奢华体验。</p>
+            </div>
+            <div class="value-card">
+                <h3>文化传承</h3>
+                <p>我们不仅售卖商品，更致力于传播每件臻品背后的工艺与文化，让奢华更具深度。</p>
+            </div>
+            <div class="value-card">
+                <h3>可持续奢华</h3>
+                <p>携手全球工匠与品牌，推动环保材质与道德采购，让奢华的未来更加可持续。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于 LUXE</h3>
+                <p>LUXE 致力于为品味非凡的人士提供全球顶级奢华臻品，每一件商品都经过严格筛选，确保卓越品质与独特设计。</p>
+            </div>
+            <div class="footer-section">
+                <h3>客户服务</h3>
+                <p><a href="contact.html">联系我们</a></p>
+                <p><a href="#">退换货政策</a></p>
+                <p><a href="#">配送信息</a></p>
+                <p><a href="#">常见问题</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>关注我们</h3>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">微信</a></p>
+                <p><a href="#">微博</a></p>
+                <p><a href="#">小红书</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 LUXE 臻选奢华商城. 版权所有.</p>
+        </div>
+    </footer>
+</body>
+</html> 
